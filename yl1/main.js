@@ -15,3 +15,5 @@ class Product{
 let laptop = new Product("sülearvuti", 800.50, "elektronika")
 console.log(laptop.describe())
 console.log(Product.discountedPrice(laptop.price, 10))
+
+// siin on test
