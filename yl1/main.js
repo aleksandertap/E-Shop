@@ -81,7 +81,9 @@ class Customer {
   printOrderHistory() {
     this.orderHistory.forEach((item, index) =>
       console.log(
-        `${index + 1}. Tellimuse kuupäev: ${item.orderDate.toLocaleString()}. Tellimuse kogusumma: €${item.cart.calculateTotal()}`
+        `${
+          index + 1
+        }. Tellimuse kuupäev: ${item.orderDate.toLocaleString()}. Tellimuse kogusumma: €${item.cart.calculateTotal()}`
       )
     );
   }
