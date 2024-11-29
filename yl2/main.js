@@ -6,6 +6,8 @@ import { Cart } from './Cart.js';
 
 import { Customer } from './Customer.js';
 
+import { displayProducts } from './views/allProductsView.js';
+
 
 // Loo mõned tooted
 
@@ -47,18 +49,4 @@ heading1.style.textAlign = "center";
 heading1.style.color = "orange"
 console.log(heading1)
 
-const mainDiv = document.getElementById("mainDiv")
-console.log(mainDiv)
-
-// Toodete kuvamine
-function displayProducts(){
-
-    products.forEach((product) =>{
-        const productCard = document.createElement("div");
-        productCard.innerHTML = `<h3>${product.name}</h3>`;
-        mainDiv.append(productCard);
-    }
-    )
-}
-
-displayProducts()
+displayProducts(products)
