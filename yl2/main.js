@@ -1,10 +1,10 @@
 // main.js
 
-import { Product } from './Product.js';
+import { Product } from './constructors/Product.js';
 
-import { Cart } from './Cart.js';
+import { Cart } from './constructors/Cart.js';
 
-import { Customer } from './Customer.js';
+import { Customer } from './constructors/Customer.js';
 
 import { displayProducts } from './views/allProductsView.js';
 

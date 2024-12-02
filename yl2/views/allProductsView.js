@@ -1,4 +1,4 @@
-// toodete vaade
+// kõikide toodete vaade
 
 export function displayProducts(products){
     const mainDiv = document.getElementById("mainDiv")
