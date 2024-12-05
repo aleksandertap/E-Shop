@@ -7,8 +7,11 @@ import { Cart } from './constructors/Cart.js';
 import { Customer } from './constructors/Customer.js';
 
 import { displayProducts } from './views/allProductsView.js';
+import { favoritesView } from './views/favoritesView.js';
+import { displayProductDetailView } from './views/productDetailView.js';
+import { displayCartView } from './views/cartView.js';
 
-
+import { navigate } from "./router.js"
 // Loo mõned tooted
 
 const products =[
@@ -20,7 +23,7 @@ new Product(3, 'Tahvelarvuti', 299.99, 'Elektroonika')
 
 const cart = new Cart();
 
-// cart.addProduct(laptop, 1);
+// cart.addProduct("Sülearvuti", 1);
 
 // cart.addProduct(phone, 2);
 
@@ -50,3 +53,6 @@ heading1.style.color = "orange"
 console.log(heading1)
 
 displayProducts(products)
+favoritesView(favorites)
+displayProductDetailView(product)
+displayCartView(products)
