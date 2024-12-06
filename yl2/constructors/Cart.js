@@ -2,7 +2,11 @@ export class Cart {
     constructor() {
       this.products = [];
     }
-    addProduct(product, quantity) {
+    getAllProducts(){
+      return this.products
+    }
+
+    addProduct(product, quantity = 1) {
       let existingProduct = this.products.find(
         (item) => item.product.id === product.id
       );
@@ -28,4 +32,6 @@ export class Cart {
       return this.products.reduce((total, item) => total + item.quantity, 0);
     }
   }
+
+export const cartContructor = new Cart()
   
