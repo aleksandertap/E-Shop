@@ -17,3 +17,5 @@ export class Order {
       console.log(`Tellimuse kogusumma : €${this.cart.calculateTotal()}`);
     }
   }
+
+export const orderConstructo = new Order()

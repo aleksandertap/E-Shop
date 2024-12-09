@@ -15,11 +15,14 @@ export class Cart {
       } else {
         this.products.push({ product, quantity });
       }
+      this.displayTotalItems()
     }
+   
     removeProduct(productId) {
       this.products = this.products.filter(
         (item) => item.product.id !== productId
       );
+      this.displayTotalItems()
     }
     calculateTotal() {
       return this.products.reduce(
@@ -28,10 +31,17 @@ export class Cart {
       );
     }
   
-    get totalItems() {
-      return this.products.reduce((total, item) => total + item.quantity, 0);
+    
+    displayTotalItems(){
+      const cartCount = document.getElementById("cartCount")
+      cartCount.innerHTML = this.products.reduce(
+        (total, item) => total + item.quantity,0)
     }
+    clear(){
+      this.products = []
+    }
+
   }
 
-export const cartContructor = new Cart()
+export const cartConstructor = new Cart()
   

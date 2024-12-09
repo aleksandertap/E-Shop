@@ -1,6 +1,6 @@
 // kõikide toodete vaade
 import { navigate } from "../router.js"
-import { cartContructor } from "../constructors/Cart.js"
+import { cartConstructor } from "../constructors/Cart.js"
 import { costumerConstructor } from "../constructors/Customer.js"
 
 export function displayProducts(products){
@@ -23,7 +23,7 @@ export function displayProducts(products){
         cartButton.textContent = "Lisa ostukorvi"
         cartButton.onclick = (e) => {
                                     e.stopPropagation()
-                                    cartContructor.addProduct(product)
+                                    cartConstructor.addProduct(product)
                                 } 
         
         productCard.append(cartButton)

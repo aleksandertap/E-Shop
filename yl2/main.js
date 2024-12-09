@@ -29,10 +29,7 @@ const initApp = async () => {
     cartButton.onclick = () => navigate("cart")
 
     displayProducts(products)
-    // favoritesView(favorites)
-    // displayProductDetailView(products[0])
-    // displayCartView()
-
+    
 }
 
 document.addEventListener("DOMContentLoaded", initApp)
