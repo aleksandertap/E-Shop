@@ -1,3 +1,4 @@
+import { cartConstructor } from "../constructors/Cart.js"
 export function displayProductDetailView(product){
     const container = document.getElementById("mainDiv")
     container.innerHTML = ""
@@ -9,7 +10,12 @@ export function displayProductDetailView(product){
                              <p>Hind : $${product.price}</p>
                              <p>ID : ${product.id} </p>
                              `
-                             
-
+    const cartButton = document.createElement("button")
+    cartButton.textContent = "Lisa ostukorvi"
+    cartButton.onclick = (e) => {
+     e.stopPropagation()
+     cartConstructor.addProduct(product)
+    } 
+    productCard.append(cartButton)
     container.append(productCard)
 }

@@ -34,9 +34,10 @@ export function displayProducts(products){
             e.stopPropagation()
             costumerConstructor.toggleFavorites(product)
         }
+        
+
         productCard.append(faveButton)
 
-        
         productCard.onclick = (e) => {
             e.stopPropagation()
             navigate("productDetail", product)
