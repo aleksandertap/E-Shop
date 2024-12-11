@@ -27,9 +27,14 @@ export class Customer {
       this.favorties = this.favorties.filter(
         (item) => item.product.id !== product.id
       );
+      return false
     } else {
       this.favorties.push({ product });
+      return true
     }
+  }
+  isFavorite(product){
+    return this.favorties.some((item) => item.product.id === product.id)
   }
   getAllFavorites() {
     return this.favorties;

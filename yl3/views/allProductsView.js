@@ -30,7 +30,16 @@ export function displayProducts(products) {
     faveButton.textContent = "Lisa lemmikutesse";
     faveButton.onclick = (e) => {
       e.stopPropagation();
-      costumerConstructor.toggleFavorites(product);
+      if (faveButton.textContent === "Lisa lemmikutesse"){
+        faveButton.textContent = "Eemalda lemmikutest"
+        costumerConstructor.toggleFavorites(product);
+    }
+        else if (faveButton.textContent === "Eemalda lemmikutest"){
+            faveButton.textContent = "Lisa lemmikutesse"
+            costumerConstructor.toggleFavorites(product);
+        }
+      
+      
     };
 
     productCard.append(faveButton);
