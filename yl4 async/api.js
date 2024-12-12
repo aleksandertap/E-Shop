@@ -1,10 +1,8 @@
-export const getProductsData = async() => {
-    try{
-         const data = await fetch("./data.json")
-         return data.json()
-    }catch(error){
-        console.log(error)
-    }
-    
-   
-}
+export const getProductsDataFromJson = async () => {
+  try {
+    const data = await fetch("./data.json");
+    return data.json();
+  } catch (error) {
+    console.error(error);
+  }
+};

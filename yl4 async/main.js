@@ -9,7 +9,7 @@ import { displayCartView } from "./views/cartView.js";
 import { Product } from "./constructors/Product.js";
 import { navigate } from "./router.js";
 import { displayProducts } from "./views/allProductsView.js";
-import { getProductsData } from "./api.js";
+import { getProductsDataFromJson } from "./api.js";
 // Loo mõned tooted
 
 // const products = [
@@ -17,17 +17,18 @@ import { getProductsData } from "./api.js";
 //   new Product(2, "Telefon", 499.99, "Elektroonika"),
 //   new Product(3, "Tahvelarvuti", 299.99, "Elektroonika"),
 // ];
-const favorites = [];
 
 document.title = "My WebShop";
 
 const initApp = async () => {
 
-  const getProductsData = await getProductsData()
-  const products = getProductsData.map(item => { item.id, item.name, item.price, item.category})
-
   const homeButton = document.getElementById("homeBtn");
   homeButton.onclick = () => initApp();
+
+  const productsData = await getProductsDataFromJson()
+  const products = productsData.map(item => new Product (item.id, item.name, item.price, item.category))
+
+
 
   const faveButton = document.getElementById("favoritesBtn");
   faveButton.onclick = () => navigate("favorites");

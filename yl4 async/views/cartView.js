@@ -92,7 +92,7 @@ export function displayCartView() {
   sumbitButton.innerHTML = "Osta";
   sumbitButton.onclick = (e) => {
     e.stopPropagation();
-    costumerConstructor.placeOrder(cart);
+    costumerConstructor.placeOrder(cartConstructor);
   };
   const cancelButton = document.createElement("button");
   cancelButton.innerHTML = "Tühista ostukorv";

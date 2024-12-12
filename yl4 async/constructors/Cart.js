@@ -1,3 +1,5 @@
+import { displayCartView } from "../views/cartView.js";
+
 export class Cart {
   constructor() {
     this.products = [];
@@ -51,6 +53,7 @@ export class Cart {
   }
   clear() {
     this.products = [];
+    displayCartView()
   }
 }
 
