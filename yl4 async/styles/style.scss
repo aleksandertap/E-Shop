@@ -13,9 +13,10 @@ body{
             color: black;
         }
     }
+
     .product{
-        height: 600px;
-        width: 400px;
+        height: 400px;
+        width: 300px;
         background-color:#C2C094 ;
     }
     img{
@@ -36,4 +37,38 @@ header{
 }
 .product{
     @include borders;
+    object-fit: contain;
+}
+#mainDiv{   
+    .products-container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .product-detail, .faveItem, .cartItem, .totalCard{
+        background-color:#C2C094 ;
+        @include borders;
+        padding: 10px;
+        margin: 10px;
+    }
+    // .faveItem{
+    //     background-color:#C2C094 ;
+    //     @include borders;
+    //     padding: 10px;
+    //     margin: 10px;
+    // }
+    // .cartItem{
+    //     background-color:#C2C094 ;
+    //     @include borders;
+    //     padding: 10px;
+    //     margin: 10px;
+    // }
+    // .totalCard{
+    //     background-color:#C2C094 ;
+    //     @include borders;
+    //     padding: 10px;
+    //     margin: 10px;
+    // }
+
 }

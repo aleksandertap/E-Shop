@@ -5,7 +5,7 @@ export function displayProductDetailView(product) {
   container.innerHTML = "";
 
   const productCard = document.createElement("div");
-  productCard.classList.add("product");
+  productCard.classList.add("product-detail");
   productCard.innerHTML = `<h2>${product.name}</h2>
                             <img src= "${product.image}">
                             <p>${product.description}</p>

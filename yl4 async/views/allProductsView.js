@@ -20,10 +20,8 @@ export const displayProducts = async (category) => {
     const productCard = document.createElement("div");
     productCard.classList.add("product");
     productCard.innerHTML = `<h3>${product.name}</h3>
-                                <img src= "${product.image}">
                                 <p>Kategooria: ${product.category}</p>
-                                <p>Hind: $${product.price}</p>
-                                <p>${product.description}</p>`;
+                                <p>Hind: $${product.price}</p>`;
 
     const cartButton = document.createElement("button");
     cartButton.textContent = "Lisa ostukorvi";

@@ -13,8 +13,8 @@ body button:hover {
   color: black;
 }
 body .product {
-  height: 600px;
-  width: 400px;
+  height: 400px;
+  width: 300px;
   background-color: #C2C094;
 }
 body img {
@@ -43,4 +43,22 @@ header div {
   border-collapse: collapse;
   padding: 5px;
   padding: 5px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#mainDiv .products-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#mainDiv .product-detail, #mainDiv .faveItem, #mainDiv .cartItem, #mainDiv .totalCard {
+  background-color: #C2C094;
+  border: 2px, solid, black;
+  border-collapse: collapse;
+  padding: 5px;
+  padding: 5px;
+  padding: 10px;
+  margin: 10px;
 }/*# sourceMappingURL=style.css.map */
