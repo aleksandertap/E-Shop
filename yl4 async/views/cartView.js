@@ -100,7 +100,10 @@ export function displayCartView() {
     cartConstructor.clear();
     displayCartView();
     cartConstructor.displayTotalItems();
+    
   };
+
   cartSummary.append(sumbitButton, cancelButton);
   mainDiv.append(cartSummary);
+  
 }

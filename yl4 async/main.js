@@ -9,7 +9,7 @@ import { displayCartView } from "./views/cartView.js";
 import { Product } from "./constructors/Product.js";
 import { navigate } from "./router.js";
 import { displayProducts } from "./views/allProductsView.js";
-import { getProductsDataFromJson } from "./api.js";
+import { getAllCategory } from "./api.js";
 // Loo mõned tooted
 
 // const products = [
@@ -23,10 +23,17 @@ document.title = "My WebShop";
 const initApp = async () => {
 
   const homeButton = document.getElementById("homeBtn");
-  homeButton.onclick = () => initApp();
+  homeButton.onclick = () => displayProducts(categories[0])
 
-  const productsData = await getProductsDataFromJson()
-  const products = productsData.map(item => new Product (item.id, item.name, item.price, item.category))
+  const categories = await getAllCategory()
+  const categoryMenu = document.getElementById("categories")
+  categories.forEach((category) => {
+    const categoryElement = document.createElement("button")
+    categoryElement.innerHTML = category
+    categoryElement.onclick = () => 
+      displayProducts(category)
+    categoryMenu.appendChild(categoryElement)
+  })
 
 
 
@@ -36,7 +43,7 @@ const initApp = async () => {
   const cartButton = document.getElementById("cartBtn");
   cartButton.onclick = () => navigate("cart");
 
-  displayProducts(products);
+  displayProducts(categories[0]);
   
 };
 

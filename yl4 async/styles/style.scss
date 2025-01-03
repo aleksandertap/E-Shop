@@ -1,0 +1,39 @@
+@import "./variables";
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #A9A587;
+    button{
+        color: white;
+        margin: 5px;
+        padding: 5px;
+        background-color: $primaryBtn;
+        &:hover{
+            background-color: $primaryBtnhover;
+            color: black;
+        }
+    }
+    .product{
+        height: 600px;
+        width: 400px;
+        background-color:#C2C094 ;
+    }
+    img{
+        height: 200px;
+        width: 200px;
+        object-fit: contain;
+    }
+}
+header{
+    @include borders;
+    background-color: #C2CFB2;
+    display: flex;
+    justify-content: space-between;
+    div{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.product{
+    @include borders;
+}

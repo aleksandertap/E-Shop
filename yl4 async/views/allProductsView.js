@@ -2,10 +2,16 @@
 import { navigate } from "../router.js";
 import { cartConstructor } from "../constructors/Cart.js";
 import { costumerConstructor } from "../constructors/Customer.js";
+import { getProductsDataByCategory } from "../api.js";
 
-export function displayProducts(products) {
+export const displayProducts = async (category) => {
+  
+  const products = await getProductsDataByCategory(category)
   const mainDiv = document.getElementById("mainDiv");
   mainDiv.innerHTML = "<h2>Tooted</h2>";
+
+  const productsContainer = document.createElement("div")
+  productsContainer.classList.add("products-container")
 
   const productContainer = document.createElement("div");
   productContainer.classList.add("products-container");
@@ -14,8 +20,10 @@ export function displayProducts(products) {
     const productCard = document.createElement("div");
     productCard.classList.add("product");
     productCard.innerHTML = `<h3>${product.name}</h3>
+                                <img src= "${product.image}">
                                 <p>Kategooria: ${product.category}</p>
-                                <p>Hind $${product.price}</p>`;
+                                <p>Hind: $${product.price}</p>
+                                <p>${product.description}</p>`;
 
     const cartButton = document.createElement("button");
     cartButton.textContent = "Lisa ostukorvi";
@@ -48,6 +56,7 @@ export function displayProducts(products) {
       navigate("productDetail", product);
     };
     productContainer.append(productCard);
+    productsContainer.append(productCard)
   });
-  mainDiv.append(productContainer);
+  mainDiv.append(productsContainer);
 }

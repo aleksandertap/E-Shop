@@ -9,8 +9,12 @@ export function favoritesView() {
   favorites.forEach((item) => {
     const faveItems = document.createElement("div");
     faveItems.classList.add("faveItem");
-    faveItems.innerHTML = `Nimi: ${item.product.name}.
-                               Hind: $${item.product.price}`;
+    faveItems.innerHTML = `<img src= "${item.product.image}">
+                            <p>Nimi: ${item.product.name}</p>.
+                               <p>Hind: $${item.product.price}</p>`;
+
+    const buttonContainer = document.createElement("div")
+    buttonContainer.classList.add("buttonContainer")
 
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Eemalda lemmikust";
@@ -26,8 +30,8 @@ export function favoritesView() {
       cartConstructor.addProduct(item.product);
     };
 
-    faveItems.append(cartButton);
-    faveItems.append(removeBtn);
+    buttonContainer.append(cartButton,removeBtn);
+    faveItems.append(buttonContainer)
 
     container.append(faveItems);
   });
