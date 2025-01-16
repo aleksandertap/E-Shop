@@ -31,7 +31,7 @@ export const getProductsDataByCategory = async (category) => {
 
 export const getAllCategory = async () => {
   try {
-    const data = await fetch(`${BASE_URL}/products/categories`);
+    const data = await fetch(`/api/products/categories`);
     return data.json();
   } catch (error) {
     console.error(error);

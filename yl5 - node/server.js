@@ -37,7 +37,13 @@ app.get("/api/products", async (req, res) => {
   res.status(200).json(products);
 });
 
-
+app.use("/api/products/categories", async (req,res) => {
+  const filePath = "./data/products.json"
+  const data = JSON.parse(await fs.readFile(filePath, "utf-8"))
+  const categories = data.map((item)=> item.category)
+  const uniqueArray = [... new Set(categories)]
+  res.json(uniqueArray)
+})
 app.get("/fetch-products", async (req, res) => {
   await fetchAndSaveProducts();
   res.status(200).json({ message: "Andmed salvestatud products.json faili" });
