@@ -1,7 +1,7 @@
 // main.js
 
 import { Cart } from "./constructors/Cart.js";
-import { Customer } from "./constructors/Customer.js";
+import { costumerConstructor, Customer } from "./constructors/Customer.js";
 import { favoritesView } from "./views/favoritesView.js";
 import { displayProductDetailView } from "./views/productDetailView.js";
 import { displayCartView } from "./views/cartView.js";
@@ -43,6 +43,7 @@ const initApp = async () => {
   const cartButton = document.getElementById("cartBtn");
   cartButton.onclick = () => navigate("cart");
 
+  await costumerConstructor.getAllFavorites()
   displayProducts(categories[0]);
   
 };

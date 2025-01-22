@@ -3,6 +3,7 @@ import { Order } from "./Order.js";
 export class Customer {
   constructor(name) {
     this.name = name;
+    this.id = Math.floor(Math.random() * 100 )
     this.orderHistory = [];
     this.favorties = [];
   }
@@ -35,6 +36,8 @@ export class Customer {
       return true;
     }
   }
+  
+  
   isFavorite(product) {
     return this.favorties.some((item) => item.product.id === product.id);
   }
