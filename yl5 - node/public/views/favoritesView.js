@@ -13,25 +13,26 @@ export function favoritesView() {
                             <p>Nimi: ${item.product.name}</p>.
                                <p>Hind: $${item.product.price}</p>`;
 
-    const buttonContainer = document.createElement("div")
-    buttonContainer.classList.add("buttonContainer")
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("buttonContainer");
 
     const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Eemalda lemmikust";
+    removeBtn.textContent = "Remove from favorites";
     removeBtn.onclick = () => {
-      costumerConstructor.toggleFavorites(item.product);
-      favoritesView();
+      costumerConstructor.toggleFavorites(item.product).then(() => {
+        favoritesView();
+      });
     };
 
     const cartButton = document.createElement("button");
-    cartButton.textContent = "Lisa ostukorvi";
+    cartButton.textContent = "Add to cart";
     cartButton.onclick = (e) => {
       e.stopPropagation();
       cartConstructor.addProduct(item.product);
     };
 
-    buttonContainer.append(cartButton,removeBtn);
-    faveItems.append(buttonContainer)
+    buttonContainer.append(cartButton, removeBtn);
+    faveItems.append(buttonContainer);
 
     container.append(faveItems);
   });

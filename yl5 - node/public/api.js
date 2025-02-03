@@ -63,12 +63,12 @@ export const getProductData = async (productId) => {
 
 export const allFaveData = async () => {
   try {
-    const faveData = await fetch("api/favorites")
-    return faveData.json()
+    const faveData = await fetch("api/favorites");
+    return faveData.json();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const getFavoritesByClient = async (clientId) => {
   try {
@@ -98,7 +98,7 @@ export const addFaveProductToClient = async (clientId, productId) => {
       method: "POST",
     });
 
-    const productData = await data.json;
+    const productData = await data.json();
     return productData;
   } catch (error) {
     console.log(error);
@@ -111,7 +111,7 @@ export const removeFaveProductFromClient = async (clientId, productId) => {
       method: "DELETE",
     });
 
-    const productData = await data.json;
+    const productData = await data.json();
     return productData;
   } catch (error) {
     console.log(error);

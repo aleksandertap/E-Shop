@@ -13,17 +13,6 @@ export function navigate(view, param) {
 
   if (views[view]) {
     views[view]();
-
-    // const encodedParam = encodeURIComponent(param);
-    // const newUrl =
-    //   view === "category" && !param ? "/" : `/${view}/${encodedParam || ""}`;
-    // window.history.pushState({}, "", newUrl);
   }
 }
 
-// window.addEventListener("popstate", () => {
-//   const path = window.location.pathname;
-//   const [_, view, param] = path.split("/");
-//   const decodedParam = decodeURIComponent(param);
-//   navigate(view || "category", decodedParam);
-// });

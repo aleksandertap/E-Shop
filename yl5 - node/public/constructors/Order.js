@@ -8,20 +8,20 @@ export class Order {
     const cartContainer = document.getElementById("mainDiv");
     const orderContainer = document.createElement("div");
     orderContainer.className = "order-container";
-    orderContainer.innerHTML = `Tellimuse kuupäev: ${this.orderDate.toLocaleString()}`;
+    orderContainer.innerHTML = `Order date: ${this.orderDate.toLocaleString()}`;
 
     this.cart.products.forEach((item) => {
       const cartElement = document.createElement("p");
-      cartElement.innerHTML = `Toode: ${item.product.name}, Kogus: ${
+      cartElement.innerHTML = `Product name: ${item.product.name}, Quantity: ${
         item.quantity
-      }, Hind kokku: ${item.product.price * item.quantity}.`;
+      }, Total price : ${item.product.price * item.quantity}.`;
       orderContainer.append(cartElement);
     });
     const sumElement = document.createElement("h4");
-    sumElement.innerHTML = `Kogusumma: $${this.cart.calculateTotal()}`;
+    sumElement.innerHTML = `Total price: $${this.cart.calculateTotal()}`;
 
     const closeButton = document.createElement("button");
-    closeButton.innerHTML = "Sulge tellimuse vaade";
+    closeButton.innerHTML = "Close order view";
     closeButton.onclick = () => {
       orderContainer.className = "order-container-close";
       

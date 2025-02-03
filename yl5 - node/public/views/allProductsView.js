@@ -8,7 +8,7 @@ export const displayProducts = async (category) => {
   
   const products = await getProductsDataByCategory(category)
   const mainDiv = document.getElementById("mainDiv");
-  mainDiv.innerHTML = "<h2>Tooted</h2>";
+  mainDiv.innerHTML = "<h2>Products</h2>";
 
   const productsContainer = document.createElement("div")
   productsContainer.classList.add("products-container")
@@ -21,12 +21,12 @@ export const displayProducts = async (category) => {
     productCard.classList.add("product");
     productCard.innerHTML = `<h3>${product.name}</h3>
                                 <img src= "${product.image}">
-                                <p>Kategooria: ${product.category}</p>
-                                <p>Hind: $${product.price}</p>
+                                <p>Category: ${product.category}</p>
+                                <p>Price: $${product.price}</p>
                                 <p>${product.description}</p>`;
 
     const cartButton = document.createElement("button");
-    cartButton.textContent = "Lisa ostukorvi";
+    cartButton.textContent = "Add to cart";
     cartButton.onclick = (e) => {
       e.stopPropagation();
       cartConstructor.addProduct(product);
@@ -36,17 +36,17 @@ export const displayProducts = async (category) => {
 
     const faveButton = document.createElement("button");
     faveButton.textContent = costumerConstructor.isFavorite(product)
-      ? "Eemalda lemmikutest"
-      : "Lisa lemmikutesse";
+      ? "Remove from favorites"
+      : "Add to favorites";
 
-    faveButton.onclick = (e) => {
+    faveButton.onclick = async (e) => {
       e.stopPropagation();
 
-      const isFavorite = costumerConstructor.toggleFavorites(product);
+      const isFavorite = await costumerConstructor.toggleFavorites(product);
 
       faveButton.textContent = isFavorite
-        ? "Eemalda lemmikutest"
-        : "Lisa lemmikutesse";
+        ? "Remove from favorites"
+        : "Add to favorites";
     };
 
     productCard.append(faveButton);

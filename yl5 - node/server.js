@@ -51,15 +51,14 @@ const fetchAndSaveProducts = async () => {
   await fs.writeFile("./data/products.json", JSON.stringify(products, null, 2));
 };
 
-app.get("/api/favorites", async (req,res)=>{
+app.get("/api/favorites", async (req, res) => {
   try {
-    const allFaveData = await readAndParseFave()
+    const allFaveData = await readAndParseFave();
     res.status(200).json(allFaveData);
-    
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-})
+});
 
 app.get("/api/favorites/:clientId", async (req, res) => {
   try {
@@ -83,16 +82,30 @@ app.post("/api/favorites/:clientId/:productId", async (req, res) => {
   try {
     const faveData = await readAndParseFave();
     const faveIds = faveData[req.params.clientId] || [];
-    faveIds.push(parseInt(req.params.productId))
-    const uniqueIds = [... new Set(faveIds)]
-    faveData[req.params.clientId] = uniqueIds
+    faveIds.push(parseInt(req.params.productId));
+    const uniqueIds = [...new Set(faveIds)];
+    faveData[req.params.clientId] = uniqueIds;
 
-    await fs.writeFile(favePath, JSON.stringify(faveData, null, 2))
+    await fs.writeFile(favePath, JSON.stringify(faveData, null, 2));
     res.status(200).json(uniqueIds);
-
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
+  }
+});
+
+app.delete("/api/favorites/:clientId/:productId", async (req, res) => {
+  try {
+    const faveData = await readAndParseFave();
+    const faveIds = faveData[req.params.clientId] || [];
+    const updateFaveIds = faveIds.filter(
+      (id) => id !== parseInt(req.params.productId)
+    );
+    faveData[req.params.clientId] = updateFaveIds;
+
+    await fs.writeFile(favePath, JSON.stringify(faveData, null, 2));
+    res.status(200).json(faveData);
+  } catch (error) {
+    console.log(error);
   }
 });
 

@@ -3,21 +3,21 @@ import { costumerConstructor } from "../constructors/Customer.js";
 
 export function displayCartView() {
   const mainDiv = document.getElementById("mainDiv");
-  mainDiv.innerHTML = "<h2>Ostukorv</h2>";
+  mainDiv.innerHTML = "<h2>Cart</h2>";
 
   const cart = cartConstructor.getAllProducts();
 
   if (!cart.length) {
     const productCard = document.createElement("p");
-    productCard.innerText = "Ostukorv on tühi";
+    productCard.innerText = "Cart is empty";
     mainDiv.append(productCard);
   } else {
     cart.forEach((product) => {
       const productCard = document.createElement("div");
       productCard.classList.add("cartItem");
       productCard.innerHTML = `<h3>${product.product.name}</h3>
-                                <p>Hind $${product.product.price}</p>
-                                <p>Kogus: ${product.quantity}</p>`;
+                                <p>Price $${product.product.price}</p>
+                                <p>Quantity: ${product.quantity}</p>`;
 
       const quantityContainer = document.createElement("div");
       quantityContainer.classList.add("quantityContainer");
@@ -52,7 +52,7 @@ export function displayCartView() {
       };
 
       const removeBtn = document.createElement("button");
-      removeBtn.textContent = "Eemalda ostukorvist";
+      removeBtn.textContent = "Remove from cart";
       removeBtn.onclick = () => {
         cartConstructor.removeProduct(product.product.id);
         displayCartView();
@@ -76,11 +76,11 @@ export function displayCartView() {
     totalCostCard.classList.add("totalCard");
 
     totalCostCard.innerHTML =
-      "<h2>Kokkuvõte</h2><p>Koguhind:</p>$" +
+      "<h2>Summary</h2><p>Total price:</p>$" +
       total.toFixed(2) +
-      "<p>Käibemaksuta:</p>$" +
+      "<p>Without VAT:</p>$" +
       kaibemaksuta.toFixed(2) + 
-      "<p>Käibemaks:</p>$" +
+      "<p>Vat:</p>$" +
       kaibemaks.toFixed(2)
 
     mainDiv.append(totalCostCard);
@@ -89,13 +89,13 @@ export function displayCartView() {
   cartSummary.classList.add("cartSummary");
 
   const sumbitButton = document.createElement("button");
-  sumbitButton.innerHTML = "Osta";
+  sumbitButton.innerHTML = "Buy";
   sumbitButton.onclick = (e) => {
     e.stopPropagation();
     costumerConstructor.placeOrder(cartConstructor);
   };
   const cancelButton = document.createElement("button");
-  cancelButton.innerHTML = "Tühista ostukorv";
+  cancelButton.innerHTML = "Cancel cart";
   cancelButton.onclick = () => {
     cartConstructor.clear();
     displayCartView();
