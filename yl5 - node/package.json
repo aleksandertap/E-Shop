@@ -1,11 +1,10 @@
 {
   "name": "yl5---node",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start" :"node server",
+    "start": "node server",
     "dev": "node --watch server"
   },
   "keywords": [],
@@ -15,5 +14,6 @@
     "axios": "^1.7.9",
     "express": "^4.21.2",
     "sass": "^1.83.4"
-  }
+  },
+  "description": ""
 }
